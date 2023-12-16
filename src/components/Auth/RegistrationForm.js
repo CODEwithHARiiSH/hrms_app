@@ -22,8 +22,12 @@ const RegistrationForm = () => {
           'Content-Type': 'application/json',
         },
       });
-      alert(response.data.message);
-      navigate('/login');
+      if (response.data.message === 'true'){alert("Registered successfully, Please login");
+        navigate('/login');}
+        else{alert("Registered successfully, Please login")
+             setEmail('')
+            setUsername('')
+          setPassword('')                          }
     } catch (error) {
       alert('failed to register check credentials');
     }

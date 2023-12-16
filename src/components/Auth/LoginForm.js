@@ -22,8 +22,6 @@ const LoginForm = ({ setAuthentication }) => {
       });
       if (response.data.message === 'true'){
         alert("login successfully");
-        setPassword('')
-        setUsername('')
         localStorage.setItem('authToken', 'yourAuthToken');
         setAuthentication(true); 
         navigate('/employees');

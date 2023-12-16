@@ -111,10 +111,9 @@ def register():
             user = model.User(name= username, email = email, password=hashed_password)
             db.session.add(user)
             db.session.commit()
-            return jsonify({'message': 'User registered successfully'})
+            return jsonify({'message': 'true'})
     except Exception as e:
-        print(e)
-        return jsonify({'message': 'failed to register'})
+        return jsonify({'message': 'false'})
 
 @app.route('/login', methods=['POST'])
 def login():
