@@ -37,18 +37,15 @@ const RegistrationForm = () => {
 
       <div className='row'>
         <form onSubmit={handleSubmit} className='registration-form'>
-          <label>
-            Username:
-            <input type="text" value={username} onChange={(e) => setUsername(e.target.value)}required />
-          </label><br />
-          <label>
-            Email:
-            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)}required />
-          </label><br />
-          <label>
-            Password:
-            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}required />
-          </label><br />
+   
+            <input type="text" value={username} onChange={(e) => setUsername(e.target.value)}required placeholder='Username' />
+  <br />
+    
+            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)}required placeholder='Email'/>
+     <br />
+    
+            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}required placeholder='Password'/>
+ <br />
           <button type="submit">Register</button>
         </form>
         <div>

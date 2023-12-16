@@ -41,27 +41,18 @@ const RegisterNewEmployee= () => {
 
       <div className='row'>
         <form onSubmit={handleSubmit} className='registration-form'>
-        <label>
-            First Name:
-            <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
-          </label><br />
-          <label>
-            Last Name:
-            <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} />
-          </label><br />
-          <label>
-            Email:
-            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-          </label><br />
-          <label>
-            Designation:
-            <input type="designation" value={designation} onChange={(e) => setDesignation(e.target.value)} />
-          </label><br />
-         
-          <label>
-            Phone:
-            <input type="text" value={phone} onChange={(e) => setPhone(e.target.value)} />
-          </label><br />
+     
+            <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder='Last Name'/>
+        
+            <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} placeholder='First Name'/>
+         <br /><br />
+   
+            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Email'/>
+            <input type="text" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder='Phone'/>
+        <br /><br />
+   
+            <input type="designation" value={designation} onChange={(e) => setDesignation(e.target.value)} placeholder='Designation'/>
+ <br /><br />
           <button type="submit">Register</button>
         </form>
         <div>

@@ -48,14 +48,12 @@ const LoginForm = ({ setAuthentication }) => {
       <div className='row'>
         <form onSubmit={handleSubmit}>
           <br />
-          <label>
-            Username:
-            <input type="text" value={username} onChange={(e) => setUsername(e.target.value) } required/>
-          </label><br /><br />
-          <label>
-            Password:
-            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
-          </label><br />
+
+            <input type="text" value={username} onChange={(e) => setUsername(e.target.value) } required placeholder='Username'/>
+<br /><br />
+  
+            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required placeholder='Password'/>
+    <br />
           <button type="submit">Login</button>
         </form>
         <div>

@@ -14,7 +14,7 @@ class User(HRDBBase):
     id: Mapped[int] = mapped_column(primary_key=True)
     name: Mapped[str] =  mapped_column(String(50))
     email: Mapped[str] =  mapped_column(String(120))
-    password: Mapped[str] =  mapped_column(String(50))
+    password: Mapped[str] =  mapped_column(String(500))
 
 class Employee(HRDBBase):
     __tablename__ = "hrms_employees"
