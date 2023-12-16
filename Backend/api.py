@@ -93,8 +93,6 @@ def add_leaves(empid):
         return jsonify(message)
     
 
-
-users = []
 @app.route('/register', methods=['OPTIONS','POST'])
 def register():
     if request.method == 'OPTIONS':
@@ -105,16 +103,17 @@ def register():
         data = request.json
         username = data.get('username')
         password = data.get('password')
+        email = data.get('email')
         if not username:
-            raise ValueError('Username cannot be empty')
-        elif any(user['username'] == username for user in users):
-            return jsonify({'message': 'User already exists'})
-        
+            raise ValueError('Username cannot be empty')        
         else:
             hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
-            users.append({'username': username, 'password': hashed_password})
+            user = model.User(name= username, email = email, password=hashed_password)
+            db.session.add(user)
+            db.session.commit()
             return jsonify({'message': 'User registered successfully'})
-    except:
+    except Exception as e:
+        print(e)
         return jsonify({'message': 'failed to register'})
 
 @app.route('/login', methods=['POST'])
@@ -122,12 +121,13 @@ def login():
     data = request.json
     username = data.get('username')
     password = data.get('password')
-    user = next((user for user in users if user['username'] == username), None)
+    query = db.select(model.User).where(model.User.name == username)
+    user = db.session.execute(query).scalar()
 
-    if not user or not bcrypt.check_password_hash(user['password'], password):
-        return jsonify({'message': 'false'})
-    else:   
+    if user and bcrypt.check_password_hash(user.password, password):
         return jsonify({'message': 'true'})
+    else:
+        return jsonify({'message': 'false'})
     
 def run_web():
     app.config["SQLALCHEMY_DATABASE_URI"] = f"postgresql:///hrms"
