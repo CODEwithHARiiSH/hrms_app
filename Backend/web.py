@@ -10,6 +10,7 @@ CORS(app)
 bcrypt = Bcrypt(app)
 db = model.SQLAlchemy(model_class=model.HRDBBase)
 
+
 @app.route("/")
 def index():
     return render_template("index.html")
