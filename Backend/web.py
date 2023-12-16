@@ -2,7 +2,6 @@ import flask
 from flask import jsonify, redirect,request,render_template
 from flask_bcrypt import Bcrypt
 from flask_cors import CORS
-import psycopg2
 import db as model
 from sqlalchemy.sql import func
 
