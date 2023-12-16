@@ -28,10 +28,13 @@ function EmployeeList() {
   return (
     <div>
      <br/>
+     <br/>
+     <br/>
         <div className="row">
           <div className='col-1'></div>
           <div className="col-3">
             <h2>Employee List</h2>
+            <hr/>
             <ol>
               {employeeList.map((employee) => (
                 <li key={employee.id} onClick={() => handleEmployeeClick(employee.id)}>

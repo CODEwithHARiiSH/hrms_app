@@ -66,8 +66,9 @@ function EmployeeDetails(empid) {
           <div className='col-5'>
         <div>
           <h1>{employeeData.fname} {employeeData.lname}</h1>
-          <h5>Designation: {employeeData.title}</h5>
+          <strong>{employeeData.title}</strong>  <br/>
           <div>
+            <br/>
             <strong>First name:</strong> {employeeData.fname}<br />
             <strong>Last name:</strong> {employeeData.lname}<br />
             <strong>Email:</strong> {employeeData.email}<br />
