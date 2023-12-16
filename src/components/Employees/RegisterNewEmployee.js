@@ -53,7 +53,7 @@ const RegisterNewEmployee= () => {
    
             <input type="designation" value={designation} onChange={(e) => setDesignation(e.target.value)} placeholder='Designation'/>
  <br /><br />
-          <button type="submit">Register</button>
+          <button className="submit-button" type="submit">Register</button>
         </form>
         <div>
           <p>Already an Employee? <Link to="/employee">Employee List</Link></p>

@@ -51,8 +51,8 @@ const LoginForm = ({ setAuthentication }) => {
 <br /><br />
   
             <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required placeholder='Password'/>
-    <br />
-          <button type="submit">Login</button>
+    <br /><br/>
+          <button  className="submit-button" type="submit">Login</button>
         </form>
         <div>
           <p>Don't have an account? <Link to="/register">Register here</Link></p>

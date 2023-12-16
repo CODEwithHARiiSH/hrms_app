@@ -73,6 +73,17 @@ def add_employee():
      except:
          return jsonify({'message': 'Failed to add Employee details'})
 
+@app.route('/employees/<int:empid>', methods=['DELETE'])
+def delete_employee(empid):
+    try:
+        query = db.select(model.Employee).where(model.Employee.id == empid)
+        employee = db.session.execute(query).scalar()
+        db.session.delete(employee)
+        db.session.commit()
+        return jsonify({'message': 'Employee deleted successfully'})
+    except:
+        return jsonify({'message': 'Failed to delete employee'})
+
 
 
 @app.route('/leaves/<int:empid>', methods=['POST'])

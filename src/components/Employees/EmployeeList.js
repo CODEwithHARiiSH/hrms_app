@@ -30,7 +30,7 @@ function EmployeeList() {
      <br/>
         <div className="row">
           <div className='col-1'></div>
-          <div className="col-5">
+          <div className="col-3">
             <h2>Employee List</h2>
             <ol>
               {employeeList.map((employee) => (
@@ -40,7 +40,7 @@ function EmployeeList() {
               ))}
             </ol>
           </div>
-          <div className="col-5">
+          <div className="col-7">
             {selectedEmployeeId && <EmployeeDetails empid={selectedEmployeeId} />}
           </div>
           <div className='col-1'></div>

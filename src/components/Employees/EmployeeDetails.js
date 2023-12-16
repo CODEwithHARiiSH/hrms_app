@@ -48,12 +48,23 @@ function EmployeeDetails(empid) {
       console.error('Error submitting leave:', error);
     }
   };
+  const handleDelete = async () => {
+    try {
+      const response = await axios.delete(`http://localhost:5000/employees/${empid.empid}`);
+      alert(response.data.message);
+      window.location.reload();
+    } catch (error) {
+      console.error('Error deleting employee:', error);
+    }
+  };
   
   return (
-    <div>
+    <div className="employee-card">
       {employeeData ? (
+      <div className='container'>
+        <div className='row'>
+          <div className='col-5'>
         <div>
-          <br/>
           <h1>{employeeData.fname} {employeeData.lname}</h1>
           <h5>Designation: {employeeData.title}</h5>
           <div>
@@ -68,17 +79,25 @@ function EmployeeDetails(empid) {
             <strong>Remaining leaves:</strong> {employeeData.max_leave - employeeData.leave}<br />
           </div>
           <br />
+          <strong>Delete Employee...? <button className="delete-button"  onClick={handleDelete}>&#x1F5D1;</button></strong>
           <br />
-
-          {/* Leave Form */}
-          <form onSubmit={handleFormSubmit}>
+          <br />
+          </div>
+        </div>
+        <div className='col-7'>
+  {/* Leave Form */}
+  <form onSubmit={handleFormSubmit}>
             <h4>Add Leave</h4>
-            <input type="date" value={date} onChange={(e) => setDate(e.target.value)} required  placeholder='date'/>
+            <input type="date" value={date} onChange={(e) => setDate(e.target.value)} required placeholder='date' />
             <br />
-            <textarea value={reason} onChange={(e) => setReason(e.target.value)} rows="4" cols="30" required placeholder='Reason'/>
+            <textarea value={reason} onChange={(e) => setReason(e.target.value)} rows="4" cols="30" required placeholder='Reason' />
             <br />
-            <button type="submit">Submit Leave</button>
+            <button type="submit" className="submit-button">Submit</button>
           </form>
+        </div>
+      </div>
+    
+        
         </div>
       ) : (
         <span>Loading employee data...</span>

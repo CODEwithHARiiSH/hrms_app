@@ -43,14 +43,14 @@ const RegistrationForm = () => {
         <form onSubmit={handleSubmit} className='registration-form'>
    
             <input type="text" value={username} onChange={(e) => setUsername(e.target.value)}required placeholder='Username' />
-  <br />
+  <br /><br/>
     
             <input type="email" value={email} onChange={(e) => setEmail(e.target.value)}required placeholder='Email'/>
-     <br />
+     <br /><br/>
     
             <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}required placeholder='Password'/>
- <br />
-          <button type="submit">Register</button>
+ <br /><br/>
+          <button className="submit-button" type="submit">Register</button>
         </form>
         <div>
           <p>Already have an account? <Link to="/login">Login here</Link></p>
