@@ -1,5 +1,5 @@
 import flask
-from flask import jsonify, redirect,request,render_template
+from flask import jsonify,request
 from flask_bcrypt import Bcrypt
 from flask_cors import CORS
 import db as model
@@ -10,14 +10,6 @@ CORS(app)
 bcrypt = Bcrypt(app)
 db = model.SQLAlchemy(model_class=model.HRDBBase)
 
-
-@app.route("/")
-def index():
-    return render_template("index.html")
-
-@app.route("/contact")
-def contact():
-    return render_template("contact.html")
 
 @app.route("/employees")
 def employees_list():
