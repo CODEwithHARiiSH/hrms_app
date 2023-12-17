@@ -22,6 +22,26 @@ function EmployeeDetails(empid) {
   useEffect(() => {
     fetchData();
   }, [empid]);
+  
+  const renderForm = () =>{
+    if (employeeData.leave >= employeeData.max_leave){
+        return(
+        <h5><strong>Oops can't add leave , {employeeData.fname} has taken maximum leave</strong></h5>);
+    }
+    else {
+return(
+  <form onSubmit={handleFormSubmit}>
+  <br/>
+  <br/>
+          <input type="date" value={date} onChange={(e) => setDate(e.target.value)} required placeholder='date' />
+          <br />
+          <textarea value={reason} onChange={(e) => setReason(e.target.value)} rows="4" cols="30" required placeholder='Reason' />
+          <br />
+          <button type="submit" className="submit-button">Submit</button>
+        </form>
+);
+    }
+  }
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -87,16 +107,8 @@ function EmployeeDetails(empid) {
         </div>
         <div className='col-7'>
   {/* Leave Form */}
-  <form onSubmit={handleFormSubmit}>
-    <br/>
-    <br/>
-            <h4>Add Leave</h4>
-            <input type="date" value={date} onChange={(e) => setDate(e.target.value)} required placeholder='date' />
-            <br />
-            <textarea value={reason} onChange={(e) => setReason(e.target.value)} rows="4" cols="30" required placeholder='Reason' />
-            <br />
-            <button type="submit" className="submit-button">Submit</button>
-          </form>
+  <h4>Add Leave</h4>
+ {renderForm()}
         </div>
       </div>
     
