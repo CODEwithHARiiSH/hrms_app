@@ -26,7 +26,7 @@ function EmployeeDetails(empid) {
   const renderForm = () =>{
     if (employeeData.leave >= employeeData.max_leave){
         return(
-        <h5><strong>Oops can't add leave , {employeeData.fname} has taken maximum leave</strong></h5>);
+        <h4><strong>&#9888; {employeeData.fname} has taken maximum leave</strong></h4>);
     }
     else {
 return(
@@ -108,6 +108,7 @@ return(
         <div className='col-7'>
   {/* Leave Form */}
   <h4>Add Leave</h4>
+  <br/>
  {renderForm()}
         </div>
       </div>
