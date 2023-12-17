@@ -27,7 +27,12 @@ const RegisterNewEmployee= () => {
         },
       });
       alert(response.data.message);
-      navigate('/employee');
+      setDesignation('')
+      setEmail('')
+      setFirstName('')
+      setLastName('')
+      setPhone('')
+      window.location.reload();
     } catch (error) {
       alert('Error during registration');
     }
@@ -56,7 +61,7 @@ const RegisterNewEmployee= () => {
           <button className="submit-button" type="submit">Register</button>
         </form>
         <div>
-          <p>Already an Employee? <Link to="/employee">Employee List</Link></p>
+          <p>Already an Employee? <Link to="/">Home</Link></p>
         </div>
       </div>
     </div>

@@ -88,6 +88,8 @@ function EmployeeDetails(empid) {
         <div className='col-7'>
   {/* Leave Form */}
   <form onSubmit={handleFormSubmit}>
+    <br/>
+    <br/>
             <h4>Add Leave</h4>
             <input type="date" value={date} onChange={(e) => setDate(e.target.value)} required placeholder='date' />
             <br />

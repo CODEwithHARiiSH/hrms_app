@@ -27,12 +27,13 @@ function EmployeeList() {
 
   return (
     <div>
-     <br/>
-     <br/>
-     <br/>
+
         <div className="row">
           <div className='col-1'></div>
           <div className="col-3">
+          <br/>
+     <br/>
+ 
             <h2>Employee List</h2>
             <hr/>
             <ol>
@@ -44,6 +45,7 @@ function EmployeeList() {
             </ol>
           </div>
           <div className="col-7">
+          <br/>
             {selectedEmployeeId && <EmployeeDetails empid={selectedEmployeeId} />}
           </div>
           <div className='col-1'></div>

@@ -96,7 +96,7 @@ def add_leaves(empid):
         leave = model.Leave(date=date, employee_id=empid, reason=reason)
         db.session.add(leave)
         db.session.commit()
-        message = {'message': "Successfully added leave. Refresh again."}
+        message = {'message': "Successfully added leave"}
         print("Leave added successfully")
         return jsonify(message)
     except:

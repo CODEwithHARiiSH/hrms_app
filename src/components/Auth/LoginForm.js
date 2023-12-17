@@ -22,7 +22,7 @@ const LoginForm = ({ setAuthentication }) => {
       });
       if (response.data.message === 'true'){
         alert("login successfully");
-        localStorage.setItem('authToken', 'yourAuthToken');
+        localStorage.setItem('authToken', 'hrms');
         setAuthentication(true); 
         navigate('/employees');
       }
