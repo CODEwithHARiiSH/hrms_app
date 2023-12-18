@@ -4,7 +4,7 @@ import { Navbar as BootstrapNavbar, Nav, NavDropdown } from 'react-bootstrap';
 
 const Navbar = ({ isLoggedIn, handleLogout }) => {
   return (
-    <BootstrapNavbar bg="primary" expand="lg">
+    <BootstrapNavbar bg="info" expand="lg">
       <div className="container-fluid">
         <Link to={'/'} className="navbar-brand">HRMS</Link>
         {isLoggedIn ? (

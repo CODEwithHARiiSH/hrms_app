@@ -14,15 +14,18 @@ function Home() {
                <h1>WELCOME TO DIGITAL HRMS</h1> 
                <hr/>
                <br/>
-               <h4>Here you can see , register and remove  Employee details </h4>
+               <strong>Here you can see , register and remove  Employee details </strong>
                <br/>
-               <h4>Please login to explore further</h4>
+               <strong>Please login to explore further</strong>
             </div>
           <div className="col-4">
             <br/>
             <br/>
             <br/>
-          <img src={homeImage} alt="home"  style={{ width: '500px', height: '300px' }}/>
+            <br/>
+            <br/>
+            <br/>
+          <img src={homeImage} alt="home"  />
             </div>
             </div>
             </div>

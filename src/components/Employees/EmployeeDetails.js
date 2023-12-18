@@ -25,14 +25,13 @@ function EmployeeDetails(empid) {
   
   const renderForm = () =>{
     if (employeeData.leave >= employeeData.max_leave){
-        return(
-        <h4><strong>&#9888; {employeeData.fname} has taken maximum leave</strong></h4>);
+        return( 
+        <strong> <br/>&#9888; {employeeData.fname} has taken maximum leave</strong>);
     }
     else {
 return(
   <form onSubmit={handleFormSubmit}>
-  <br/>
-  <br/>
+  
           <input type="date" value={date} onChange={(e) => setDate(e.target.value)} required placeholder='date' />
           <br />
           <textarea value={reason} onChange={(e) => setReason(e.target.value)} rows="4" cols="30" required placeholder='Reason' />
@@ -107,8 +106,10 @@ return(
         </div>
         <div className='col-7'>
   {/* Leave Form */}
-  <h4>Add Leave</h4>
   <br/>
+  
+  <h4>Add Leave</h4>
+ 
  {renderForm()}
         </div>
       </div>
