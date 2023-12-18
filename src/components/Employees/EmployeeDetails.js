@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import axios from 'axios'
+import axios from 'axios';
 
 function EmployeeDetails(empid) {
   const [employeeData, setEmployeeData] = useState(null);
@@ -76,6 +76,24 @@ return(
       console.error('Error deleting employee:', error);
     }
   };
+
+  const downloadVCard = async () => {
+    try {
+      const response = await fetch(`http://localhost:5000/vcard/${empid.empid}`);
+      const vCardContent = await response.text();
+
+      const blob = new Blob([vCardContent], { type: 'text/vcard' });
+
+      const link = document.createElement('a');
+      link.href = window.URL.createObjectURL(blob);
+      link.download = `employee_${employeeData.fname}_vcard.vcf`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (error) {
+      console.error('Error downloading vCard:', error);
+    }
+  };
   
   return (
     <div className="employee-card">
@@ -94,18 +112,23 @@ return(
             <strong>Phone:</strong> {employeeData.phone}<br />
           </div>
           <div>
+            
             <strong>Leave taken:</strong> {employeeData.leave}<br />
             <strong>Maximum leave allowed:</strong> {employeeData.max_leave}<br />
             <strong>Remaining leaves:</strong> {employeeData.max_leave - employeeData.leave}<br />
           </div>
           <br />
+          <div>
           <strong>Delete Employee...? <button className="delete-button"  onClick={handleDelete}>&#x1F5D1;</button></strong>
+          </div>
+          
+          <strong>Download visiting card<button onClick={downloadVCard}> Download</button></strong>
           <br />
           <br />
           </div>
         </div>
+          {/* Leave Form */}
         <div className='col-7'>
-  {/* Leave Form */}
   <br/>
   
   <h4>Add Leave</h4>
