@@ -16,7 +16,7 @@ const Navbar = ({ isLoggedIn, handleLogout }) => {
                   Employee List
                 </NavDropdown.Item>
                 <NavDropdown.Item as={Link} to="/registeremployee">
-                  Add Employee
+                  Register new Employee
                 </NavDropdown.Item>
               </NavDropdown>
             </Nav>
