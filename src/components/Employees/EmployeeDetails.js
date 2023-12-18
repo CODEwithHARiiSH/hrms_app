@@ -9,7 +9,7 @@ function EmployeeDetails(empid) {
  
   const fetchData = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/employees/${empid.empid}`);
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/employees/${empid.empid}`);
       if (!response.status === 200) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
@@ -46,7 +46,7 @@ return(
     e.preventDefault();
     try {
       const response = await axios.post(
-        `http://localhost:5000/leaves/${empid.empid}`,
+        `${process.env.REACT_APP_API_URL}/leaves/${empid.empid}`,
         {
           date,
           reason,
@@ -69,7 +69,7 @@ return(
   };
   const handleDelete = async () => {
     try {
-      const response = await axios.delete(`http://localhost:5000/employees/${empid.empid}`);
+      const response = await axios.delete(`${process.env.REACT_APP_API_URL}/employees/${empid.empid}`);
       alert(response.data.message);
       window.location.reload();
     } catch (error) {
@@ -79,7 +79,7 @@ return(
 
   const downloadVCard = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/vcard/${empid.empid}`);
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/vcard/${empid.empid}`);
       const vCardContent = await response.text();
 
       const blob = new Blob([vCardContent], { type: 'text/vcard' });
