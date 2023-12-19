@@ -1,6 +1,8 @@
 import React, { useState} from 'react';
 import { useNavigate , Link} from 'react-router-dom';
 import axios from 'axios';
+import './auth.css';
+
 
 const LoginForm = ({ setAuthentication }) => {
   const [username, setUsername] = useState('');
@@ -37,28 +39,47 @@ const LoginForm = ({ setAuthentication }) => {
    
   };
 
+
   return (
-    <div className='container'>
-      <div className='row'>
-        <h3>Login Here</h3>
-      </div>
-
-      <div className='row'>
-        <form onSubmit={handleSubmit}>
-          <br />
-
-            <input type="text" value={username} onChange={(e) => setUsername(e.target.value) } required placeholder='Username'/>
-<br /><br />
-  
-            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required placeholder='Password'/>
-    <br /><br/>
-          <button  className="submit-button" type="submit">Login</button>
-        </form>
-        <div>
-          <p>Don't have an account? <Link to="/register">Register here</Link></p>
+    <div className='image'>
+    <div className='login_container'>
+      <div className='login_card'>
+      <h3 style={{ textAlign: 'center' }}>Login Here</h3>
+      <form onSubmit={handleSubmit}>
+        <div style={{ marginBottom: '15px' }}>
+          <label htmlFor="username">Username</label>
+          <input
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+            style={{ width: '100%', padding: '8px', boxSizing: 'border-box', borderRadius: '4px', border: '1px solid #ccc' }}
+            placeholder="Username"
+          />
         </div>
+        <div style={{ marginBottom: '15px' }}>
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            style={{ width: '100%', padding: '8px', boxSizing: 'border-box', borderRadius: '4px', border: '1px solid #ccc' }}
+            placeholder="Password"
+          />
+        </div>
+        <button style={{ width: '100%', padding: '10px', backgroundColor: '#007BFF', color: '#fff', border: 'none', borderRadius: '4px' }} type="submit">
+          Login
+        </button>
+      </form>
+      <div style={{ marginTop: '15px', textAlign: 'center' }}>
+        <p>
+          Don't have an account? <Link to="/register">Register here</Link>
+        </p>
       </div>
     </div>
+  </div>
+  </div>
   );
 };
 

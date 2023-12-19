@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
+import './auth.css';
 
 const RegistrationForm = () => {
   const [username, setUsername] = useState('');
@@ -33,29 +34,63 @@ const RegistrationForm = () => {
     }
   };
 
-  return (
-    <div className='container'>
-      <div className='row'>
-        <h3>Register Here</h3>
-      </div>
 
-      <div className='row'>
+  return (
+    <div className='image'>
+    <div className='login_container'>
+    <div className='login_card'>
+        <div className='row'>
+          <h3>Register Here</h3>
+        </div>
         <form onSubmit={handleSubmit} className='registration-form'>
-   
-            <input type="text" value={username} onChange={(e) => setUsername(e.target.value)}required placeholder='Username' />
-  <br /><br/>
-    
-            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)}required placeholder='Email'/>
-     <br /><br/>
-    
-            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}required placeholder='Password'/>
- <br /><br/>
-          <button className="submit-button" type="submit">Register</button>
+          <div>
+            <label htmlFor="username">Username</label>
+            <input
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+              className="form-control"
+              placeholder="Username"
+            />
+          </div>
+          <div>
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="form-control"
+              placeholder="Email"
+            />
+          </div>
+          <div>
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              className="form-control"
+              placeholder="Password"
+            />
+          </div>
+          <button
+            className="btn btn-primary"
+            type="submit"
+            style={{ marginTop: '15px', width: '100%' }}
+          >
+            Register
+          </button>
         </form>
-        <div>
-          <p>Already have an account? <Link to="/login">Login here</Link></p>
+        <div style={{ marginTop: '15px', textAlign: 'center' }}>
+          <p>
+            Already have an account? <Link to="/login">Login here</Link>
+          </p>
         </div>
       </div>
+    </div>
     </div>
   );
 };

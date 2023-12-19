@@ -21,7 +21,7 @@ function EmployeeDetails(empid) {
 
   useEffect(() => {
     fetchData();
-  }, [empid]);
+  });
   
   const renderForm = () =>{
     if (employeeData.leave >= employeeData.max_leave){

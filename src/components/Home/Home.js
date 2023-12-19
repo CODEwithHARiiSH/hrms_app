@@ -1,35 +1,45 @@
-import homeImage from './home.jpeg';
+import React from 'react';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import homeImage1 from './home1.jpg';
+import homeImage2 from './home2.jpg';
+import homeImage3 from './home3.jpg';
 
 function Home() {
+  const carouselImages = [homeImage1, homeImage2, homeImage3];
 
-    return (
-        <div>
-        <br/>
-        <div className="row">
-          <div className='col-2'></div>
-        <div className="col-4">
-              <br/>
-              <br/>
-              <br/>
-               <h1>WELCOME TO DIGITAL HRMS</h1> 
-               <hr/>
-               <br/>
-               <strong>Here you can see , register and remove  Employee details </strong>
-               <br/>
-               <strong>Please login to explore further</strong>
-            </div>
-          <div className="col-4">
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-          <img src={homeImage} alt="home"  />
-            </div>
-            </div>
-            </div>
-    )
-    }
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,    
+    autoplaySpeed: 200,   
+  };
+  return (
+    <div>
+      <br />
+      <div className="container">
+      <div className='row'>
+          <Slider {...settings}>
+            {carouselImages.map((image, index) => (
+              <div key={index}>
+                <img src={image} alt={`carousel-${index + 1}`} style={{ width: 'auto', height: '500px' }}/>
+              </div>
+            ))}
+          </Slider>
+          </div>
+        </div>
+        <div className='container'>
+        <h4 style={{textAlign: 'center'}}>
+          Welcome to Digital HRMS
+        </h4>
+        <hr/>
+        </div>
+      </div>
+  );
+}
 
-  export default Home;
+export default Home;

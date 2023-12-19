@@ -67,8 +67,8 @@ body {
     cursor: pointer;
     background-color: transparent;
     border: 2p;
-    font-size: 1.5rem;
-    margin-left: 8px;
+    font-size: 1.1rem;
+    margin-left: 5px;
   }
   .submit-button {
     background-color: #4caf50; 

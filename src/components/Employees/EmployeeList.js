@@ -36,13 +36,12 @@ function EmployeeList() {
  
             <h2>Employee List</h2>
             <hr/>
-            <ol>
+        
               {employeeList.map((employee) => (
-                <li key={employee.id} onClick={() => handleEmployeeClick(employee.id)}>
-                  {employee.name}
-                </li>
+                <p>
+                  <button key={employee.id} onClick={() => handleEmployeeClick(employee.id)} className="delete-button" > {employee.name}</button>
+                </p> 
               ))}
-            </ol>
           </div>
           <div className="col-7">
           <br/>
@@ -51,7 +50,7 @@ function EmployeeList() {
           <div className='col-1'></div>
         </div>
       </div>
-    // </div>
+
   );
 }
 
