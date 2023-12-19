@@ -140,7 +140,7 @@ return(
         
         </div>
       ) : (
-        <span>Loading employee data...</span>
+        <span>Employee data is not available , check id again</span>
       )}
     </div>
   );
