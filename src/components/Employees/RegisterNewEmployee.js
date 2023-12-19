@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {  Link } from 'react-router-dom';
 import axios from 'axios';
+import registerImage from './register.jpg'
 
 const RegisterNewEmployee= () => {
   const [designation, setDesignation] = useState('');
@@ -37,30 +38,104 @@ const RegisterNewEmployee= () => {
     }
   };
 
-  return (
-    <div className='container'>
-      <div className='row'>
-        <h3>Register New Employee Here</h3>
-      </div>
+  const styles = {
+    container: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '100vh',
+      backgroundImage: `url(${registerImage})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+    },
+    card: {
+      width: '300px',
+      padding: '20px',
+      boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+      borderRadius: '8px',
+      backgroundColor: 'rgba(255, 255, 255, 0.8)',
+    },
+    row: {
+      textAlign: 'center',
+    },
+    registrationForm: {
+      marginTop: '15px',
+    },
+    input: {
+      width: '100%',
+      padding: '8px',
+      marginBottom: '15px',
+      boxSizing: 'border-box',
+      borderRadius: '4px',
+      border: '1px solid #ccc',
+    },
+    button: {
+      width: '100%',
+      padding: '10px',
+      backgroundColor: '#007BFF',
+      color: '#fff',
+      border: 'none',
+      borderRadius: '4px',
+    },
+  };
+  
 
-      <div className='row'>
-        <form onSubmit={handleSubmit} className='registration-form'>
-     
-            <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder='Last Name'/>
-        
-            <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} placeholder='First Name'/>
-         <br /><br />
-   
-            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Email'/>
-            <input type="text" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder='Phone'/>
-        <br /><br />
-   
-            <input type="designation" value={designation} onChange={(e) => setDesignation(e.target.value)} placeholder='Designation'/>
- <br /><br />
-          <button className="submit-button" type="submit">Register</button>
+  return (
+    <div style={styles.container}>
+      <div style={styles.card}>
+        <div style={styles.row}>
+          <h3>Register New Employee Here</h3>
+        </div>
+        <form onSubmit={handleSubmit} style={styles.registrationForm}>
+          <input
+            type="text"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            placeholder="Last Name"
+            style={styles.input}
+          />
+
+          <input
+            type="text"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            placeholder="First Name"
+            style={styles.input}
+          />
+          <br /><br />
+          <input
+            type="text"
+            value={designation}
+            onChange={(e) => setDesignation(e.target.value)}
+            placeholder="Designation"
+            style={styles.input}
+          />
+          <br /><br />
+
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Email"
+            style={styles.input}
+          />
+          <input
+            type="text"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            placeholder="Phone"
+            style={styles.input}
+          />
+          <br /><br />
+
+          <button type="submit" style={styles.button}>
+            Register
+          </button>
         </form>
-        <div>
-          <p>Already an Employee? <Link to="/">Home</Link></p>
+        <div style={styles.row}>
+          <p>
+            Already an Employee? <Link to="/">Home</Link>
+          </p>
         </div>
       </div>
     </div>
