@@ -18,6 +18,12 @@ In the src folder there are App.js and components folder
 
    On cloning node_module will not be there .
 
-            Use npm install for installing modules
+  * Use 
+            
+            npm install 
+  
+  for installing modules
 
-            After npm install run npm start
+  * After npm install run 
+  
+            npm start
