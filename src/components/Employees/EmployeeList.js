@@ -18,7 +18,7 @@ function EmployeeList() {
   
   useEffect(() => {
     fetchData();
-  }, []);
+  },[]);
 
   const handleEmployeeClick = (id) => {
     
@@ -37,11 +37,13 @@ function EmployeeList() {
             <h2>Employee List</h2>
             <hr/>
         
-              {employeeList.map((employee) => (
-                <p>
-                  <button key={employee.id} onClick={() => handleEmployeeClick(employee.id)} className="delete-button" > {employee.name}</button>
-                </p> 
-              ))}
+            {employeeList.map((employee) => (
+  <p key={employee.id}>
+    <button onClick={() => handleEmployeeClick(employee.id)} className="delete-button">
+      {employee.name}
+    </button>
+  </p>
+))}
           </div>
           <div className="col-7">
           <br/>
