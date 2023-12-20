@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {  Link } from 'react-router-dom';
+import {  Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import registerImage from './register.jpg'
 
@@ -9,6 +9,7 @@ const RegisterNewEmployee= () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [phone, setPhone] = useState('');
+  const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -32,7 +33,7 @@ const RegisterNewEmployee= () => {
       setFirstName('')
       setLastName('')
       setPhone('')
-      window.location.reload();
+      navigate('/employees')
     } catch (error) {
       alert('Error during registration');
     }
